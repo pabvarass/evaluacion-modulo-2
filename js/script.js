@@ -67,14 +67,11 @@ document.getElementById("testForm").addEventListener("submit", function (e) {
     feedbackHTML;
   document.getElementById("testFeedback").innerHTML = feedbackHTML;
 
-  // Ocultar botón enviar
   document.getElementById("submitTestBtn").classList.add("d-none");
-  // Mostrar botones reiniciar y cerrar
   document.getElementById("restartTestBtn").classList.remove("d-none");
   document.getElementById("closeTestBtn").classList.remove("d-none");
 });
 
-// Tomar el test nuevamente
 document
   .getElementById("restartTestBtn")
   .addEventListener("click", function () {
@@ -85,9 +82,37 @@ document
     document.getElementById("closeTestBtn").classList.add("d-none");
   });
 
-// Cerrar test
 document.getElementById("closeTestBtn").addEventListener("click", function () {
   let modalEl = document.getElementById("testModal");
   let modal = bootstrap.Modal.getInstance(modalEl);
   modal.hide();
+});
+
+// Efecto hover en los consejos usando jQuery
+$(document).ready(function () {
+  $(".list-group-item").hover(
+    function () {
+      // Mouse entra
+      $(this)
+        .css({
+          "background-color": "#0d6efd",
+          "color": "#fff",
+          "box-shadow": "0 0.5rem 1rem rgba(0, 0, 0, 0.2)",
+          "cursor": "pointer",
+        })
+        .stop(true, true)
+        .fadeTo(200, 0.95);
+    },
+    function () {
+      // Mouse sale
+      $(this)
+        .css({
+          "background-color": "",
+          "color": "",
+          "box-shadow": "",
+        })
+        .stop(true, true)
+        .fadeTo(200, 1);
+    }
+  );
 });

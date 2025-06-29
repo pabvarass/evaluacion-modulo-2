@@ -1,13 +1,14 @@
-// Validación del formulario de contacto
-document.getElementById("contactForm").addEventListener("submit", function (e) {
+// Validación del formulario de contacto con jQuery
+$("#contactForm").on("submit", function (e) {
   e.preventDefault();
+
   let form = this;
   if (form.checkValidity()) {
     alert("¡Mensaje enviado correctamente!");
     form.reset();
-    form.classList.remove("was-validated");
+    $(form).removeClass("was-validated");
   } else {
-    form.classList.add("was-validated");
+    $(form).addClass("was-validated");
   }
 });
 
